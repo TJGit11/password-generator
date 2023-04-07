@@ -68,8 +68,9 @@ let upperAlphabet = [
 let specialCharacters = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"];
 
 // begin the builtArray empty & update value as the code runs
-let builtArray = [];
+
 function generatePassword() {
+  let builtArray = [];
   // if confirmed, builtArray now contains all letters in lowerAlphabet. If not, then they are not incldued
   if (confirm("Do you want your password to contain lowercase letters?")) {
     builtArray = [...builtArray, ...lowerAlphabet];
