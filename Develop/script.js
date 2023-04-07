@@ -93,10 +93,12 @@ function generatePassword() {
   }
   console.log(builtArray);
 
+  let generatedLetterIndex = Math.floor(Math.random() * builtArray.length);
   let passwordLength = prompt("how long do you want the password?");
   let password = "";
   for (let i = 0; i < passwordLength; i++) {
-    password += builtArray[passwordLength];
+    console.log(builtArray + "hello world");
+    password = builtArray[generatedLetterIndex];
   }
 
   return password;
