@@ -58,15 +58,43 @@ let upperAlphabet = [
   "Y",
   "Z",
 ];
-let builtArray = [...upperAlphabet, ...numbers];
-let generatedLetterIndex = Math.floor(Math.random() * builtArray.length);
 
-// lowerAlphabetExample[generatedLetterIndex];
+let specialCharacters = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"];
+
+let builtArray = [];
+
+// let builtArray = [...upperAlphabet, ...numbers];
+// let generatedLetterIndex = Math.floor(Math.random() * builtArray.length);
+
+// let builtArray = [...builtArray, ...numbers];
+
+// start at empty let builtArray = [] - > empty array
+// do you want numbers? let builtArray = [...builtArray, ...numbers] -> empty builtArray + numbers
+// do you want numbers and lowercase letters? [...builtArray, ...lowerAlphabet] -> builtArray gained numbers previously and now has lower case alphabet joined
+// do you want numbers and lowercase and uppercase? [...builtArray, upperAlphabet] -> builtArray gained lowercase & numbers previously and is now joined with upper case alphabet
+
+lowerAlphabetExample[generatedLetterIndex];
 function generatePassword() {
   if (confirm("Do you want your password to contain lowercase letters?")) {
+    builtArray = [...builtArray, ...lowerAlphabet];
+  }
+  if (confirm("Do you want your password to contain uppercase letters?")) {
+    builtArray = [...builtArray, upperAlphabet];
+  }
+  if (confirm("Do you want your password to contain numbers?")) {
+    builtArray = [...builtArray, ...numbers];
+  }
+  if (confirm("Do you want your password to contain special characters?")) {
+    builtArray = [...builtArray, ...specialCharacters];
   }
 
-  return "password example";
+  let passwordLength = prompt("how long do you want the password?");
+  let password = "";
+  for (let i = 0; i < passwordLength; i++) {
+    password += builtArray[index];
+  }
+
+  return password;
 }
 
 // Write password to the #password input
