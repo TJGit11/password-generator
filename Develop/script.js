@@ -75,33 +75,45 @@ let builtArray = [];
 
 // lowerAlphabetExample[generatedLetterIndex];
 function generatePassword() {
+  let finalPassword = [];
+
   if (confirm("Do you want your password to contain lowercase letters?")) {
     builtArray = [...builtArray, ...lowerAlphabet];
-    console.log(builtArray);
+    // console.log(builtArray);
   }
   if (confirm("Do you want your password to contain uppercase letters?")) {
     builtArray = [...builtArray, ...upperAlphabet];
-    console.log(builtArray);
+    // console.log(builtArray);
   }
   if (confirm("Do you want your password to contain numbers?")) {
     builtArray = [...builtArray, ...numbers];
-    console.log(builtArray);
+    // console.log(builtArray);
   }
   if (confirm("Do you want your password to contain special characters?")) {
     builtArray = [...builtArray, ...specialCharacters];
-    console.log(builtArray);
+    // console.log(builtArray);
   }
   console.log(builtArray);
 
-  let generatedLetterIndex = Math.floor(Math.random() * builtArray.length);
-  let passwordLength = prompt("how long do you want the password?");
+  let generatedLetterIndex = [];
+  let passwordLength = prompt("How long do you want the password to be?");
   let password = "";
-  for (let i = 0; i < passwordLength; i++) {
-    console.log(builtArray + "hello world");
-    password = builtArray[generatedLetterIndex];
+
+  if (passwordLength < 8 || passwordLength > 128) {
+    alert(
+      "Password must be at least 8 characters but no more than 128 characters"
+    );
+    return;
   }
 
-  return password;
+  for (let i = 0; i < passwordLength; i++) {
+    generatedLetterIndex.push(
+      builtArray[Math.floor(Math.random() * builtArray.length)]
+    );
+  }
+
+  console.log(generatedLetterIndex);
+  return generatedLetterIndex.join("");
 }
 
 // Write password to the #password input
