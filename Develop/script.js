@@ -73,25 +73,30 @@ let builtArray = [];
 // do you want numbers and lowercase letters? [...builtArray, ...lowerAlphabet] -> builtArray gained numbers previously and now has lower case alphabet joined
 // do you want numbers and lowercase and uppercase? [...builtArray, upperAlphabet] -> builtArray gained lowercase & numbers previously and is now joined with upper case alphabet
 
-lowerAlphabetExample[generatedLetterIndex];
+// lowerAlphabetExample[generatedLetterIndex];
 function generatePassword() {
   if (confirm("Do you want your password to contain lowercase letters?")) {
     builtArray = [...builtArray, ...lowerAlphabet];
+    console.log(builtArray);
   }
   if (confirm("Do you want your password to contain uppercase letters?")) {
-    builtArray = [...builtArray, upperAlphabet];
+    builtArray = [...builtArray, ...upperAlphabet];
+    console.log(builtArray);
   }
   if (confirm("Do you want your password to contain numbers?")) {
     builtArray = [...builtArray, ...numbers];
+    console.log(builtArray);
   }
   if (confirm("Do you want your password to contain special characters?")) {
     builtArray = [...builtArray, ...specialCharacters];
+    console.log(builtArray);
   }
+  console.log(builtArray);
 
   let passwordLength = prompt("how long do you want the password?");
   let password = "";
   for (let i = 0; i < passwordLength; i++) {
-    password += builtArray[index];
+    password += builtArray[passwordLength];
   }
 
   return password;
